@@ -12,6 +12,6 @@ now = datetime.now()
 offset = dt.timedelta(hours=float(r.text))
 new_time= now + offset
 
-st.title("Når er strøm billiste i dag?")
+st.title("Når er strøm billigste i dag?")
 
 st.metric("kl. " + new_time.strftime("%H:%M") + ", dvs. om", r.text + " timer")
