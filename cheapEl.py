@@ -3,7 +3,7 @@ from datetime import datetime
 import datetime as dt
 import requests
 
-URL = "https://" + st.secrets.jeedom_url + "/core/api/jeeApi.php"
+URL = "https://" + st.secrets.jeedom_host + "/core/api/jeeApi.php"
 PARAMS = {'apikey':st.secrets.jeedom_api_key, 'type':'cmd', 'id':'2240'}
 
 r = requests.get(url = URL, params = PARAMS)
