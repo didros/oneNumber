@@ -8,17 +8,17 @@ def fetch():
 
     try:
         if "input_timew" not in st.session_state:
-            timewindow = '3 hours'
+            timewindow = '3 timer'
         else:
             timewindow = st.session_state.input_timew
 
-        if timewindow == '1 hour' :
+        if timewindow == '1 time' :
             st.session_state.jeedom_cmd = "2048" 
-        if timewindow == '2 hours' :
+        if timewindow == '2 timer' :
             st.session_state.jeedom_cmd = "2049" 
-        if timewindow == '3 hours' :
+        if timewindow == '3 timer' :
             st.session_state.jeedom_cmd = "2046" 
-        if timewindow == '4 hours' :
+        if timewindow == '4 timer' :
             st.session_state.jeedom_cmd = "2047"
 
         PARAMS = {'apikey':st.secrets.jeedom_api_key, 'type':'cmd', 'id':st.session_state.jeedom_cmd}
@@ -56,14 +56,15 @@ def main():
 
     show()
 
-    selVal = ['1 hour','2 hours','3 hours','4 hours']
+    selVal = ['1 time','2 timer','3 timer','4 timer']
     timewindow = st.radio(
-        "Tidsvindu valgt:",
+        "Tidsvindu:",
         selVal,
         index=2,
         horizontal=True,
         key="input_timew",
-        on_change=fetch)
+        on_change=fetch,
+        help="Pris endres hver time. Avhengig av hvor lenge du trenger strøm (tidsvindu), kan optimal tidspunkt endre seg.")
 
 
 if __name__ == '__main__' :
