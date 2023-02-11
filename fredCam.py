@@ -1,7 +1,8 @@
 import streamlit as st
 import json
 
-from streamlit_echarts import st_echarts
+import streamlit_echarts as ec
+#from streamlit_echarts import st_echarts
 from datetime import datetime
 import datetime as dt
 
@@ -100,36 +101,7 @@ options_dag = {
     ],
 }
 
-options_week = {
-    "title": {"text": "Arbeidsuke", "subtext": str(round(100*((t))/HoursPerWeek))+"%", "left": "center"},
-    "tooltip": {"trigger": "item"},
-#    "legend": {"orient": "vertical", "left": "left",},
-    "series": [
-        {
-            #"name": "Detalje",
-            "type": "pie",
-            "radius": "50%",
-            "data": [
-                {"value": round(t,ndigits=1), "name": "Tid du må jobbe (t)"},
-                {"value": round(HoursPerWeek - t,ndigits=1)}
-            ],
-            "emphasis": {
-                "itemStyle": {
-                    "shadowBlur": 10,
-                    "shadowOffsetX": 0,
-                    "shadowColor": "rgba(0, 0, 0, 0.5)",
-                }
-            },
-        }
-    ],
-}
 
-
-st_echarts(
+ec.st_echarts(
     options=options_dag, height="300px",
 )
-
-st_echarts(
-    options=options_week, height="300px",
-)
-
