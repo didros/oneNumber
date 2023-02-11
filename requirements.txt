@@ -1,1 +1,2 @@
 streamlit_echarts
+streamlit_javascript
