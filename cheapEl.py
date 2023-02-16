@@ -49,7 +49,7 @@ def show():
 
 def main():
 
-    st.title("Når er strøm billigste i dag (i Oslo)?")
+    st.title("Når er strømmen billigst i Oslo i dag?")
 
     if "input_timew" not in st.session_state:
         fetch()
@@ -58,13 +58,13 @@ def main():
 
     selVal = ['1 time','2 timer','3 timer','4 timer']
     timewindow = st.radio(
-        "Tidsvindu:",
+        "Vennligst oppgi ønsket varighet for strømforbruket ditt:",
         selVal,
         index=2,
         horizontal=True,
         key="input_timew",
         on_change=fetch,
-        help="Pris endres hver time. Avhengig av hvor lenge du trenger strøm (tidsvindu), kan optimal tidspunkt endre seg.")
+        help="Vi vil gi deg informasjon om det billigste tidspunktet å bruke strøm på, basert på ønsket varighet av strømforbruket ditt. For eksempel, hvis du vil starte oppvaskmaskinen din (som tar omtrent 3 timer) vil appen fortelle deg når du bør starte oppvaskmaskinen for å få det mest kostnadseffektive strømforbruket.")
 
 
 if __name__ == '__main__' :
